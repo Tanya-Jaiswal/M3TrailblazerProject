@@ -1,0 +1,25 @@
+label{
+    float: left;
+    
+    }
+    
+    input{
+        float:right;
+    }
+    textarea{
+        float:right;
+        padding:9px;
+    }
+    form{
+    
+        overflow:auto;
+        padding: 10px;
+        width: 400px;
+        height: 100%;
+        font-family: 'Numans', sans-serif;
+    
+    }
+    
+    select{
+    float: right;
+    }

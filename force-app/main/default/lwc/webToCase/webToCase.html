@@ -1,0 +1,37 @@
+<template>
+    <form action="https://hfs--m3trlblzrs.my.salesforce.com/servlet/servlet.WebToCase?encoding=UTF-8" method="POST">
+    
+    <input type=hidden name="orgid" value="00DO00000053wjv">
+    <input type=hidden name="retURL" value="https://m3trlblzrs-hfs.cs5.force.com/smilimited/s/service-request-feedback">
+    
+    <label for="name">Contact Name*</label><input required id="name" maxlength="80" name="name" size="20" type="text" /><br><br>
+    
+    <label for="email">Email*</label><input required id="email" maxlength="80" name="email" size="20" type="text" /><br><br>
+    
+    <label for="phone">Phone*</label><input required id="phone" name="phone" type="tel" pattern="[7-9]{1}[0-9]{9}" /><br><br>
+    
+    <label for="company">Company*</label><input required id="company" maxlength="80" name="company" size="20" type="text" /><br><br>
+    
+    <label for="recordType">Regional Area*</label><select required id="recordType" name="recordType"><option value="">--None--</option><option value="012O0000000cLra">East Region</option>
+    <option value="012O0000000cLrk">North Region</option>
+    <option value="012O0000000cLrV">South Region</option>
+    <option value="012O0000000cLrf">West Region</option>
+    </select><br><br>
+    
+    <label for="reason">Select a reason*</label><select required id="reason" name="reason"><option value="">--None--</option><option value="AC_is_not_working">AC is not working</option>
+    <option value="Battery_backup_issue">Battery backup issue</option>
+    <option value="Music_System_is_not_working">Music System is not working</option>
+    <option value="Problem_in_Electric_Motor">Problem in Electric Motor</option>
+    <option value="Other">Other</option>
+    </select><br><br>
+    
+    <label for="subject">Subject</label><input  id="subject" maxlength="80" name="subject" size="20" type="text" /><br><br>
+    
+    <label for="description">Description*</label><textarea name="description" required ></textarea><br><br>
+    
+    <input type="hidden"  id="external" name="external" value="1" /><br><br>
+    
+    <input type="submit" name="submit">
+    
+    </form>
+</template>

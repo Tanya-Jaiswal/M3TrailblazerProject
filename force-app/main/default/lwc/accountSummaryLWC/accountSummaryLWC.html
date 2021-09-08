@@ -1,0 +1,102 @@
+<template>
+    <lightning-card title="Account Summary" icon-name="standard:account">
+    
+        <table>
+            <tr>
+                <td>
+                
+                    <div class="slds-m-around_medium">
+                        <select class="slds-select" onchange={contactFetch}>
+                        <option>Select Account</option>
+                            <template for:each ={acc} for:item="item">
+                                <option key={item.Id} value={item.Id}>{item.Name}</option>
+                            </template>
+                        </select>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="slds-m-around_medium">
+                            <h3><b>Related Contacts</b></h3>
+                            <table >
+                                <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Email</th>
+                                    </tr>
+                                </thead>
+                                <template for:each ={con} for:item="item">
+                                    <tr key={item.Id}>
+                                        <td>
+                                            {item.Name}
+                                        </td>
+                                        
+                                        <td>
+                                            {item.Email}
+                                        </td>
+                                    </tr>
+                                </template>
+                            </table>
+                    </div>
+                </td>
+            </tr>
+        
+            <tr>
+                <td>
+                    <div class="slds-m-around_medium">
+                        
+                            <h3><b>Related Opportunities</b></h3>
+                            <table >
+                                <thead>
+                                    <tr>
+                                        <th>Opportunity Name</th>
+                                        <th>Stage</th>
+                                    </tr>
+                                </thead>
+                                <template for:each ={opp} for:item="item">
+                                    <tr key={item.Id}>
+                                        <td>
+                                            {item.Name}
+                                        </td>
+                                        
+                                        <td>
+                                            {item.StageName}
+                                        </td>
+                                    </tr>
+                                </template>
+                            </table>
+                    </div>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <div class="slds-m-around_medium">
+                        
+                            <h3><b>Related Cases</b></h3>
+                            <table >
+                                <thead>
+                                    <tr>
+                                        <th>Case Number</th>
+                                        <th>Email</th>
+                                    </tr>
+                                </thead>
+                                <template for:each ={cs} for:item="item">
+                                    <tr key={item.Id}>
+                                        <td>
+                                            {item.CaseNumber}
+                                        </td>
+                                        
+                                        <td>
+                                            {item.Status}
+                                        </td>
+                                    </tr>
+                                </template>
+                            </table>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </lightning-card>
+</template>
