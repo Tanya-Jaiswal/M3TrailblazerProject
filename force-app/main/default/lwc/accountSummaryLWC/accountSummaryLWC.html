@@ -20,6 +20,15 @@
                     <div class="slds-m-around_medium">
                             <h3><b>Related Contacts</b></h3>
                             <table >
+                                <template for:each ={cnt} for:item="item">
+                                    <tr key={item.Id}>
+                                        <td>
+                                            {item.cnt}
+                                        </td>
+                                    </tr>
+                                </template>
+                            </table>
+                            <table >
                                 <thead>
                                     <tr>
                                         <th>Name</th>
@@ -48,6 +57,15 @@
                         
                             <h3><b>Related Opportunities</b></h3>
                             <table >
+                                <template for:each ={cntopp} for:item="item">
+                                    <tr key={item.Id}>
+                                        <td>
+                                            {item.cntopp}
+                                        </td>
+                                    </tr>
+                                </template>
+                            </table>
+                            <table >
                                 <thead>
                                     <tr>
                                         <th>Opportunity Name</th>
@@ -69,12 +87,81 @@
                     </div>
                 </td>
             </tr>
-
+            <tr>
+                <td>
+                    <div class="slds-m-around_medium">
+                        <h3><b>No. of opportunites Closed Won:</b></h3>
+                            <table >
+                                <template for:each ={closedwonofopp} for:item="item">
+                                    <tr key={item.Id}>
+                                        <td>
+                                            {item.Name}
+                                        </td>
+                                    </tr>
+                                </template>
+                            </table>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="slds-m-around_medium">
+                        
+                            <h3><b>No. of opportunites Closed Lost:</b></h3>
+                            <table >
+                                <template for:each ={closedlostopp} for:item="item">
+                                    <tr key={item.Id}>
+                                        <td>
+                                            {item.Name}
+                                        </td>
+                                    </tr>
+                                </template>
+                            </table>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="slds-m-around_medium">
+                        
+                            <h3><b>Closed Won opportunites Amount:</b></h3>
+                            <table >
+                                <thead>
+                                    <tr>
+                                        <th>Opportunity Name</th>
+                                        <th>Amount</th>
+                                    </tr>
+                                </thead>
+                                <template for:each ={amountClosedWonOpp} for:item="item">
+                                    <tr key={item.Id}>
+                                        <td>
+                                            {item.Name}
+                                        </td>
+                                        
+                                        <td>
+                                            {item.Amount}
+                                        </td>
+                                    </tr>
+                                </template>
+                            </table>
+                    </div>
+                </td>
+            </tr>
+            
             <tr>
                 <td>
                     <div class="slds-m-around_medium">
                         
                             <h3><b>Related Cases</b></h3>
+                            <table >
+                                <template for:each ={cntcs} for:item="item">
+                                    <tr key={item.Id}>
+                                        <td>
+                                            {item.cntcs}
+                                        </td>
+                                    </tr>
+                                </template>
+                            </table>
                             <table >
                                 <thead>
                                     <tr>
@@ -95,6 +182,13 @@
                                 </template>
                             </table>
                     </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <lightning-record-form object-api-name={objectApiName} record-id={recordId} 
+                    fields={fieldList} onsuccess={handleAccountUpdate}>
+                    </lightning-record-form>
                 </td>
             </tr>
         </table>
