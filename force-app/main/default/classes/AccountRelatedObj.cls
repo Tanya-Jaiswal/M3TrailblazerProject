@@ -2,7 +2,7 @@ public class AccountRelatedObj {
     @auraEnabled(cacheable=true)
     public static List<Account> fetchAccount()
     {
-        List<Account> accList=[SELECT Id,Name FROM Account ];
+        List<Account> accList=[SELECT Id,Name FROM Account];
         return accList;
     }
     @auraEnabled

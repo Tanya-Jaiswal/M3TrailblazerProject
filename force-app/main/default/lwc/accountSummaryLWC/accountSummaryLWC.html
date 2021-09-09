@@ -6,7 +6,7 @@
                 <td>
                 
                     <div class="slds-m-around_medium">
-                        <select class="slds-select" onchange={contactFetch}>
+                        <select class="slds-select" onchange={relatedDetailsFetch}>
                         <option>Select Account</option>
                             <template for:each ={acc} for:item="item">
                                 <option key={item.Id} value={item.Id}>{item.Name}</option>
@@ -186,9 +186,20 @@
             </tr>
             <tr>
                 <td>
-                    <lightning-record-form object-api-name={objectApiName} record-id={recordId} 
-                    fields={fieldList} onsuccess={handleAccountUpdate}>
-                    </lightning-record-form>
+                    <lightning-card title="Update Account Record">
+                        <div class="slds-m-around_medium">
+        
+                            <!-- To Update Record-->
+                            <lightning-textarea label="Enter Financial Year" data-field="Financial_Year__c" 
+                                class="slds-m-bottom_x-small"></lightning-textarea>
+                                <lightning-textarea label="Enter Full Year Target Revenue" data-field="Full_Year_Target_Revenue__c" 
+                                class="slds-m-bottom_x-small"></lightning-textarea>
+                                <lightning-textarea label="Enter Campaign Budget" data-field="Campaign_Budget__c" 
+                                class="slds-m-bottom_x-small"></lightning-textarea>
+                            <lightning-button variant="brand" label="Update Account" onclick={updateAccount} 
+                                class="slds-m-left_x-small"></lightning-button>
+                        </div>
+                    </lightning-card>
                 </td>
             </tr>
         </table>
