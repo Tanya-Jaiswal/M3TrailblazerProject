@@ -1,4 +1,4 @@
-import { LightningElement, track, api} from 'lwc';
+import { LightningElement, track} from 'lwc';
 import fetchAccount from '@salesforce/apex/AccountRelatedObj.fetchAccount';
 import fetchContact from '@salesforce/apex/AccountRelatedObj.getContacts';
 import fetchOpportunity from '@salesforce/apex/AccountRelatedObj.fetchOpportunity';
@@ -15,12 +15,10 @@ import Full_Year_Target_Revenue from '@salesforce/schema/Account.Full_Year_Targe
 import Campaign_Budget from '@salesforce/schema/Account.Campaign_Budget__c';
 import { ShowToastEvent } from 'lightning/platformShowToastEvent';
 import { updateRecord } from 'lightning/uiRecordApi';
-import { getRecord } from 'lightning/uiRecordApi';
 
 export default class accountSummary extends LightningElement {
 
     @track acc;
-    strAccId = '001p000000tLd8gAAC';
     @track con;
     message;
     @track msg;
@@ -36,10 +34,11 @@ export default class accountSummary extends LightningElement {
     //fieldList= [Financial_Year, Full_Year_Target_Revenue, Campaign_Budget];
     updateAccount(){
         const fields = {};
-        fields[ID_FIELD.fieldApiName] = this.strAccId;
+        fields[ID_FIELD.fieldApiName] = this.msg;
         fields[Financial_Year.fieldApiName] = this.template.querySelector("[data-field='Financial_Year__c']").value;
         fields[Full_Year_Target_Revenue.fieldApiName] = this.template.querySelector("[data-field='Full_Year_Target_Revenue__c']").value;
         fields[Campaign_Budget.fieldApiName] = this.template.querySelector("[data-field='Campaign_Budget__c']").value;
+        console.log(fields);
 
         const recordInput = { fields };
         updateRecord(recordInput)
