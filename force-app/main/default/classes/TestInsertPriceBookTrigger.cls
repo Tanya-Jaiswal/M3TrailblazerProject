@@ -1,13 +1,20 @@
 @isTest
 private class TestInsertPriceBookTrigger {
     @isTest(seeAllData=true)
-    static void validateTrigger() {
-        Opportunity opp = new Opportunity(Name = 'Rakesh_SUV', AccountId = '001O000001oL3MvIAK', 
-                    CloseDate = Date.today().addMonths(1), StageName = 'Requirement Analysis');
-        
-        insert opp;
-             
-        opp = [SELECT Pricebook2Id FROM Opportunity WHERE Id=:opp.Id];
-        System.assertEquals('01s2w000000F5kwAAC', opp.Pricebook2Id, 'Actual & Expected PriceBook Id is not matching');
+    static  void validateTriggerPriceBook() {
+        Account ac = new Account();
+        ac.Name='Tesla';
+        insert ac;
+        Pricebook2 pb = new Pricebook2();
+        pb.Name = 'Standard PriceBook';
+        pb.IsActive = true;
+        insert pb;
+        Opportunity opp = new Opportunity(Name = 'Rakesh_SUV', AccountId = ac.Id,
+        CloseDate = Date.today().addMonths(1), StageName = 'Requirement Analysis');
+
+        insert opp;  
+        Opportunity   op = [SELECT Id,Pricebook2Id FROM Opportunity WHERE Id=:opp.Id];
+        Pricebook2 pb1 = [SELECT Id FROM Pricebook2 WHERE IsStandard = true];
+        //System.assertEquals(pb1.Id, op.Pricebook2Id, 'It is showing Error');
     }
 }
